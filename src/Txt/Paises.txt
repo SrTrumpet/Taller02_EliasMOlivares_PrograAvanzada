@@ -1,0 +1,2 @@
+Japon,pieza,10,00001,Diamante
+Chile,arma,12,00004,Cobre
