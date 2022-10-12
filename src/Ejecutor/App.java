@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
+import Clases.Gestor;
 import Clases.Menu;
+import Clases.Persona;
 
 public class App {
 
@@ -21,7 +23,16 @@ public class App {
 	public void ejecutor(App admin) throws IOException {
 		Menu menu = new Menu();
 		admin.leerArchivo(menu);
-		admin.menuOpciones(menu);
+		Gestor g = new Gestor();
+		
+		if(verificarInicioSesion(menu)) {
+			System.out.println("Iniciando Sesion...");
+			System.out.println("");
+			admin.menuOpciones(menu);
+		}else {
+			System.out.println("Error, usuario no encontrado o error en los datos ingresados!!");
+		}
+		
 		
 	}
 
@@ -139,5 +150,22 @@ public class App {
 		}
 		
 		
+	}
+	
+	public boolean verificarInicioSesion(Menu menu) {
+		Scanner leer = new Scanner(System.in);
+		
+		System.out.println("Ingrese nombre de usuario: ");
+		String nombre = leer.nextLine();
+		System.out.println("Ingrese su identificacion: ");
+		String identificacion = leer.nextLine();
+		
+		Persona userInicioSesion = menu.getPersona(identificacion);
+		
+		if(userInicioSesion == null) {
+			return false;
+		}
+		
+		return userInicioSesion.getIdentificacion().equals(identificacion) && userInicioSesion.getNombre().equals(nombre) && userInicioSesion.getEspecialidad().equals("admin");
 	}
 }

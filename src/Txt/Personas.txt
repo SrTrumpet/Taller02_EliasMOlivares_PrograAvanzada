@@ -1,2 +1,3 @@
 Manuel,6893129,ensamblador,GX
 Roberto,9999999,admin,ADMINISTRACION
+Elias,204753857,admin,ADMINISTRACION
