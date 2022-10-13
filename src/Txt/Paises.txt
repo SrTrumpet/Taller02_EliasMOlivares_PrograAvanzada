@@ -1,2 +1,4 @@
-Japon,pieza,10,00001,Diamante
-Chile,arma,12,00004,Cobre
+Japon,pieza,00001,10,Diamante
+Chile,arma,00004,12,Cobre
+Chile,arma,00002,1000,hierro
+Chile,pieza,00003,20,cuero

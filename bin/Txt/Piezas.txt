@@ -1,0 +1,2 @@
+casco samurai,00001,cabeza,Japon,100
+casco huaso,00003,cabeza,Chile,20

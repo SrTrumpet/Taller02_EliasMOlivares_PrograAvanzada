@@ -3,12 +3,12 @@ package Clases;
 public class Arma {
 	
 	private String nombre; 
-	private int codArma;
+	private String codArma;
 	private int municion; 
 	private String paisOrigen;
 	private int cantMaterial;
 	
-	public Arma(String nombre, int codArma, int municion, String paisOrigen, int cantMaterial) {
+	public Arma(String nombre, String codArma, int municion, String paisOrigen, int cantMaterial) {
 		this.nombre = nombre;
 		this.codArma = codArma;
 		this.municion = municion;
@@ -25,11 +25,11 @@ public class Arma {
 		this.nombre = nombre;
 	}
 
-	public int getCodArma() {
+	public String getCodArma() {
 		return codArma;
 	}
 
-	public void setCodArma(int codArma) {
+	public void setCodArma(String codArma) {
 		this.codArma = codArma;
 	}
 

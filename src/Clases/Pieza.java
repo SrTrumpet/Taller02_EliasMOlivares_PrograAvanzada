@@ -3,12 +3,12 @@ package Clases;
 public class Pieza {
 	
 	private String nombre;
-	private int codigoPieza; 
+	private String codigoPieza; 
 	private String tipoPieza; 
 	private String paisOrigen;
 	private int cantMaterialNecesario;
 	
-	public Pieza(String nombre, int codigoPieza, String tipoPieza, String paisOrigen, int cantMaterialNecesario) {
+	public Pieza(String nombre, String codigoPieza, String tipoPieza, String paisOrigen, int cantMaterialNecesario) {
 		this.nombre = nombre;
 		this.codigoPieza = codigoPieza;
 		this.tipoPieza = tipoPieza;
@@ -24,11 +24,11 @@ public class Pieza {
 		this.nombre = nombre;
 	}
 
-	public int getCodigoPieza() {
+	public String getCodigoPieza() {
 		return codigoPieza;
 	}
 
-	public void setCodigoPieza(int codigoPieza) {
+	public void setCodigoPieza(String codigoPieza) {
 		this.codigoPieza = codigoPieza;
 	}
 

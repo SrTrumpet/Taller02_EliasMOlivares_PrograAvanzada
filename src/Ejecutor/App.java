@@ -39,7 +39,7 @@ public class App {
 	
 	public void leerArchivo(Menu menu) throws IOException {
 
-		// Se leeran todos los archivos antes del archivo rebots.txt ya que este ultimo
+		// Se leeran todos los archivos antes del archivo robots.txt ya que este ultimo
 		// nos dirá que conecta con que
 		// ya que si se hace al revez no tendriamos las instancias creadas
 		
@@ -57,17 +57,10 @@ public class App {
 			menu.guardarArchPersonas(linea);
 		}
 		
-		Scanner leerPaises = new Scanner(new File("src\\Txt\\Paises.txt")); 
-		
-		while(leerPaises.hasNextLine()) {
-			String linea = leerPaises.nextLine();
-			menu.guardarPaises(linea);
-		}
-		
 		Scanner leerArmas = new Scanner(new File("src\\Txt\\Armas.txt"));
 		
 		while(leerArmas.hasNextLine()) {
-			String linea = leerPaises.nextLine();
+			String linea = leerArmas.nextLine();
 			menu.guardarArmas(linea);
 		}
 		
@@ -76,6 +69,13 @@ public class App {
 		while(leerPieza.hasNextLine()) {
 			String linea = leerPieza.nextLine();
 			menu.guardarPiezas(linea);
+		}
+		
+		Scanner leerPaises = new Scanner(new File("src\\Txt\\Paises.txt")); 
+		
+		while(leerPaises.hasNextLine()) {
+			String linea = leerPaises.nextLine();
+			menu.guardarPaises(linea);
 		}
 		
 		Scanner leerRobot = new Scanner("src\\Txt\\robots.txt");
@@ -125,11 +125,19 @@ public class App {
 			if(opcion == 1) {}
 			else if(opcion == 2) {}
 			else if(opcion == 3) {}
-			else if(opcion == 4) {}
+			else if(opcion == 4) {
+				System.out.println("Ingrese el tipo de pieza: ");
+				String tipo = leer.nextLine();
+				menu.mostrarTipoPieza(tipo);
+			}
 			else if(opcion == 5) {}
 			else if(opcion == 6) {}
 			else if(opcion == 7) {}
-			else if(opcion == 8) {}
+			else if(opcion == 8) {
+				System.out.println(" ");
+				menu.mostrarPersonas();
+				System.out.println(" ");
+			}
 			else if(opcion == 9) {}
 			else if(opcion == 10) {}
 			else if(opcion == 11) {}
@@ -142,7 +150,11 @@ public class App {
 			}
 			else if(opcion == 13) {}
 			else if(opcion == 14) {}
-			else if(opcion == 15) {}
+			else if(opcion == 15) {
+				System.out.println(" ");
+				menu.mostrarArmasPiezas();
+				System.out.println(" ");
+			}
 			else if(opcion == 16) {}
 			else if(opcion == 17) {}
 			else if(opcion == 18) {}
