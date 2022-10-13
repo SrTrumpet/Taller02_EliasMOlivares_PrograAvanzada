@@ -22,7 +22,13 @@ public class Gestor {
 		listaArmas.add(arma);
 	}
 	
+	
+	
 	protected void guardarPais(Pais pais) {
+		
+		
+		
+		
 		listaPaises.add(pais);
 	}
 	
