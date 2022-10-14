@@ -54,7 +54,8 @@ public class App {
 		
 		while(leerMaterial.hasNextLine()) {
 			String linea = leerMaterial.nextLine();
-			menu.guardarArchPersonas(linea);
+			menu.guardarMaterial(linea);
+			
 		}
 		
 		Scanner leerArmas = new Scanner(new File("src\\Txt\\Armas.txt"));
@@ -82,6 +83,7 @@ public class App {
 		
 		while(leerRobot.hasNextLine()) {
 			String linea = leerRobot.nextLine();
+			menu.guardarRobot(linea);
 			
 		}
 	}
@@ -130,7 +132,13 @@ public class App {
 				String tipo = leer.nextLine();
 				menu.mostrarTipoPieza(tipo);
 			}
-			else if(opcion == 5) {}
+			else if(opcion == 5) {
+				System.out.println("Ingrese le material a buscar: ");
+				String material = leer.nextLine().toLowerCase();
+				
+				menu.mostrarMaterialPais(material);
+				System.out.println(" ");
+			}
 			else if(opcion == 6) {}
 			else if(opcion == 7) {}
 			else if(opcion == 8) {
@@ -139,7 +147,9 @@ public class App {
 				System.out.println(" ");
 			}
 			else if(opcion == 9) {}
-			else if(opcion == 10) {}
+			else if(opcion == 10) {
+				menu.mostrarRobots();
+			}
 			else if(opcion == 11) {}
 			else if(opcion == 12) {
 				System.out.println("##############");
@@ -149,7 +159,16 @@ public class App {
 				System.out.println(" ");
 			}
 			else if(opcion == 13) {}
-			else if(opcion == 14) {}
+			else if(opcion == 14) {
+				System.out.println(" ");
+				System.out.println("Ingrese el nombre del material que se le agregará stock: ");
+				String material = leer.nextLine().toLowerCase();
+				System.out.println("Ingrese la cantidad a agregar: ");
+				int cantidad = Integer.parseInt(leer.nextLine());
+				
+				menu.addMaterial(material, cantidad);
+				System.out.println(" ");
+			}
 			else if(opcion == 15) {
 				System.out.println(" ");
 				menu.mostrarArmasPiezas();

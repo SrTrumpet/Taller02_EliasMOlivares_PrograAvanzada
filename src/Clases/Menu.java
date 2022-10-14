@@ -29,6 +29,14 @@ public class Menu {
 	}
 
 	public void guardarMaterial(String linea) {
+		
+		String[] datos = linea.split(",");
+		String nombreMaterial = datos[0];
+		int stock = Integer.parseInt(datos[1]);
+		String nombrePais = datos[2];
+		
+		Material material = new Material(nombreMaterial, stock, nombrePais);
+		administrador.guardarMaterial(material);
 
 	}
 
@@ -83,9 +91,58 @@ public class Menu {
 	}
 
 	public void guardarRobot(String linea) {
+		
+		String[] datos = linea.split(",");
+		
+		String nombreRobot = datos[0];
+		String nombreBrazo = datos[1];
+		String nombrePiernas = datos[2];
+		String nombreTorax = datos[3];
+		String nombreCabeza = datos[4];
+		String nombreCualidad = datos[5];
+		String nombreArma = datos[6];
+		String nombreEquipo = datos[7];
+		String codigoPiloto = datos[8];
+		
+		Robot robot = new Robot(nombreRobot, nombreBrazo, nombrePiernas, nombreTorax, nombreCabeza, nombreCualidad, nombreArma, nombreEquipo, codigoPiloto);
+		
+		administrador.guardarRobot(robot);
+		
 
 	}
+	
+	public void addMaterial(String material, int add) {
+		
+		Material addStock = administrador.buscarMaterial(material);
+		if(addStock == null) {
+			System.out.println("Material no encontrado");
+		}else {
+			System.out.println("Material ingresado: "+material.toUpperCase()+" Pais: "+addStock.getNombrePais());
+			System.out.println(" ");
+			System.out.println("Cantidad actual: "+addStock.getStock());
+			int actual = addStock.getStock();
+			addStock.setStock(add+actual);
+			System.out.println("Cantidad añadida: +"+add);
+			System.out.println("Total ==> "+addStock.getStock());
+			
+		}
+	}
+	
+	public void mostrarMaterialPais(String material) {
+		Material buscar = administrador.buscarMaterial(material);
+		if(buscar == null) {
+			System.out.println("Material no econtrado");
+		}else {
+			System.out.println("Material ingresado: "+material.toUpperCase());
+			System.out.println("Pais que lo tiene: "+buscar.getNombrePais());
+			System.out.println("Stock restante: "+buscar.getStock());
+		}
+	}
+	
 
+	/***
+	 * Muestra por consola los paises que participan de este programa
+	 */
 	public void mostrarPaises() {
 		for (String s : listaPaises) {
 			System.out.println(s);
@@ -176,4 +233,7 @@ public class Menu {
 		System.out.println(administrador.mostrarTodasLasPiezasArmas());
 	}
 
+	public void mostrarRobots() {
+		System.out.println(administrador.mostrarRobot());
+	}
 }

@@ -9,6 +9,8 @@ public class Gestor {
 	private List<Pieza> listaPiezas = new ArrayList<Pieza>();
 	private List<Arma> listaArmas = new ArrayList<Arma>();
 	private List<Pais> listaPaises = new ArrayList<Pais>();
+	private List<Material> listaMateriales = new ArrayList<Material>();
+	private List<Robot> listaRobots = new ArrayList<Robot>();
 
 	protected void guardarPersona(Persona agregar) {
 		listaUsuarios.add(agregar);
@@ -20,6 +22,14 @@ public class Gestor {
 
 	protected void guardarArma(Arma arma) {
 		listaArmas.add(arma);
+	}
+	
+	protected void guardarMaterial(Material material) {
+		listaMateriales.add(material);
+	}
+	
+	protected void guardarRobot(Robot robot) {
+		listaRobots.add(robot);
 	}
 
 	protected void vincularPaisArmaPieza(Pais pais) {
@@ -111,6 +121,22 @@ public class Gestor {
 		}
 		return todo;
 		
+	}
+	protected Material buscarMaterial(String material) {
+		for(Material m: listaMateriales) {
+			if(m.getNombreMaterial().toLowerCase().equals(material)) {
+				return m;
+			}
+		}
+		return null;
+	}
+	
+	protected String mostrarRobot() {
+		String todosLosRobots = "Lista Robots: \n\n";
+		for(Robot r: listaRobots) {
+			todosLosRobots += r.toString()+"\n";
+		}
+		return todosLosRobots;
 	}
 
 }
