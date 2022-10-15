@@ -24,10 +24,12 @@ public class App {
 		Menu menu = new Menu();
 		admin.leerArchivo(menu);
 		Gestor g = new Gestor();
+		menu.generarGrupos();
 		
 		if(verificarInicioSesion(menu)) {
 			System.out.println("Iniciando Sesion...");
 			System.out.println("");
+			
 			admin.menuOpciones(menu);
 		}else {
 			System.out.println("Error, usuario no encontrado o error en los datos ingresados!!");
@@ -79,7 +81,7 @@ public class App {
 			menu.guardarPaises(linea);
 		}
 		
-		Scanner leerRobot = new Scanner("src\\Txt\\robots.txt");
+		Scanner leerRobot = new Scanner(new File("src\\Txt\\robots.txt"));
 		
 		while(leerRobot.hasNextLine()) {
 			String linea = leerRobot.nextLine();
@@ -124,7 +126,40 @@ public class App {
 					""");
 			opcion = Integer.parseInt(leer.nextLine());
 			
-			if(opcion == 1) {}
+			if(opcion == 1) {
+				System.out.println("Que añadira? Pieza = 1, Arma = 2");
+				int opcionAdd = Integer.parseInt(leer.nextLine());
+				
+				if(opcionAdd == 1) {
+					System.out.println("Igrese le nombre de la pieza: ");
+					String nombrePieza = leer.nextLine();
+					System.out.println("Ingrese el codigo de la pieza: ");
+					String codigoPieza = leer.nextLine();
+					System.out.println("Ingrese el tipo de pieza: ");
+					String tipoPieza = leer.nextLine();
+					System.out.println("Ingrese el pais de Origen: ");
+					String paisOrigen = leer.nextLine();
+					System.out.println("Ingrese la cantidad de material: ");
+					String cantMaterial = leer.nextLine();
+					
+					
+					System.out.println("Ingrese la cantidad de "+nombrePieza+" que tendra "+paisOrigen);
+					String cantidad = leer.nextLine();
+					System.out.println("Ingrese el material de que esta hecho el "+nombrePieza);
+					String material = leer.nextLine();
+					
+					String objetoPieza = nombrePieza+","+codigoPieza+","+tipoPieza+","+paisOrigen+","+cantMaterial;
+					menu.guardarPiezas(objetoPieza);
+					
+					String paisGuardar = paisOrigen+",pieza,"+codigoPieza+","+cantidad+","+material;
+					menu.guardarPaises(paisGuardar);
+					
+					
+					
+					
+					
+				}
+			}
 			else if(opcion == 2) {}
 			else if(opcion == 3) {}
 			else if(opcion == 4) {
@@ -146,7 +181,9 @@ public class App {
 				menu.mostrarPersonas();
 				System.out.println(" ");
 			}
-			else if(opcion == 9) {}
+			else if(opcion == 9) {
+				menu.mostrarGrupos();
+			}
 			else if(opcion == 10) {
 				menu.mostrarRobots();
 			}

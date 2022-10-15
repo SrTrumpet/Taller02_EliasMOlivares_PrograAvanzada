@@ -11,6 +11,7 @@ public class Gestor {
 	private List<Pais> listaPaises = new ArrayList<Pais>();
 	private List<Material> listaMateriales = new ArrayList<Material>();
 	private List<Robot> listaRobots = new ArrayList<Robot>();
+	private List<Grupo> listaGrupos = new ArrayList<Grupo>();
 
 	protected void guardarPersona(Persona agregar) {
 		listaUsuarios.add(agregar);
@@ -137,6 +138,46 @@ public class Gestor {
 			todosLosRobots += r.toString()+"\n";
 		}
 		return todosLosRobots;
+	}
+	
+	protected String mostrarGrupos() {
+		String grupos = "";
+		for(Grupo g: listaGrupos) {
+			grupos+= g.toString();
+			grupos+= "##################\n";
+		}
+		return grupos;
+	}
+	protected void generarGrupos() {
+		
+		for(Robot r: listaRobots) {
+			String equipo = r.getNombreEquipo();
+			Grupo grupo = verificarGrupo(equipo);
+			if(grupo == null) {
+				grupo = new Grupo(equipo);
+				listaGrupos.add(grupo);
+				addPersonasEquipo(grupo);
+			}
+		}
+		
+	}
+	
+	private void addPersonasEquipo(Grupo g) {
+		for(Persona p: listaUsuarios) {
+			System.out.println("Nombre: "+p.getNombre()+" Usao: "+p.getEquipo());
+			if(p.getEquipo().equals(g.getNombreGrupo())) {
+				g.addArmador(p);
+			}
+		}
+		
+	}
+	private Grupo verificarGrupo(String equipo) {
+		for(Grupo g: listaGrupos) {
+			if(g.getNombreGrupo().equals(equipo)) {
+				return g;
+			}
+		}
+		return null;
 	}
 
 }

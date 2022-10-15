@@ -2,3 +2,4 @@ Manuel,6893129,ensamblador,GX
 Roberto,9999999,admin,ADMINISTRACION
 Elias,204753857,admin,ADMINISTRACION
 Juan,79874564,piloto,FD
+Nuts,123798,piloto,GX

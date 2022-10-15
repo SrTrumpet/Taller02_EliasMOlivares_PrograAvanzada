@@ -156,7 +156,7 @@ public class Menu {
 	 * @param nombre
 	 * @return boolean
 	 */
-	private boolean verificarPais(String nombre) {
+	public boolean verificarPais(String nombre) {
 		boolean encontrado = true;
 		for (String s : listaPaises) {
 			if (s.equals(nombre)) {
@@ -235,5 +235,11 @@ public class Menu {
 
 	public void mostrarRobots() {
 		System.out.println(administrador.mostrarRobot());
+	}
+	public void generarGrupos() {
+		administrador.generarGrupos();
+	}
+	public void mostrarGrupos() {
+		System.out.println(administrador.mostrarGrupos());
 	}
 }
