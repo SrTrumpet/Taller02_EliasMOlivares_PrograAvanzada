@@ -153,11 +153,32 @@ public class App {
 					
 					String paisGuardar = paisOrigen+",pieza,"+codigoPieza+","+cantidad+","+material;
 					menu.guardarPaises(paisGuardar);
+				}
+				else if(opcionAdd == 2) {
+					System.out.println("Ingrese el nombre del arma: ");
+					String nombre = leer.nextLine();
+					System.out.println("Ingrese el codigo del arma: ");
+					String codigo = leer.nextLine();
+					System.out.println("Ingrese la municion: ");
+					String municion = leer.nextLine();
+					System.out.println("Ingrese el pais de origen: ");
+					String paisOrigen = leer.nextLine();
+					System.out.println("Ingrese el tipo de material que esta hecha el arma: ");
+					String tipoMaterial = leer.nextLine();
+					System.out.println("Ingrese cantidad de material: ");
+					String cantMaterial = leer.nextLine();
 					
+					String objetoArma = nombre +","+ codigo +","+ municion +","+ paisOrigen +","+ cantMaterial;
+					menu.guardarArmas(objetoArma);
 					
+					System.out.println("Cuantas armas agregara?: ");
+					String cantidadArmas = leer.nextLine();
 					
+					String objetoPais = paisOrigen +",arma,"+codigo +","+cantidadArmas+","+tipoMaterial;
+					menu.guardarPaises(objetoPais);
 					
-					
+				}else {
+					System.out.println("Opcion no valida");
 				}
 			}
 			else if(opcion == 2) {}
@@ -195,7 +216,27 @@ public class App {
 				menu.mostrarPaises();
 				System.out.println(" ");
 			}
-			else if(opcion == 13) {}
+			else if(opcion == 13) {
+				System.out.println("Ingrese el nombre del pais que añadira piezas: ");
+				String pais = leer.nextLine();
+				String frase = menu.mostrarPiezaSegunPais(pais);
+				
+				if(frase.equals("a")) {
+					System.out.println("El pais no tiene piezas vinculadas");
+				}else {
+					System.out.println(frase);
+					System.out.println("Ingrese el codigo de la pieza para añadirle stock: ");
+					String codigo = leer.nextLine();
+					System.out.println("Ingrese cuanto stock le añadira: ");
+					int cantidad = Integer.parseInt(leer.nextLine());
+					
+					if(menu.addStockPieza(codigo, cantidad)) {
+						System.out.println("Añadido correctamente");
+					}else {
+						System.out.println("No se pudo añadir");
+					}
+				}
+			}
 			else if(opcion == 14) {
 				System.out.println(" ");
 				System.out.println("Ingrese el nombre del material que se le agregará stock: ");
@@ -213,7 +254,9 @@ public class App {
 			}
 			else if(opcion == 16) {}
 			else if(opcion == 17) {}
-			else if(opcion == 18) {}
+			else if(opcion == 18) {
+				opcion = 0;
+			}
 			
 		}
 		

@@ -242,4 +242,18 @@ public class Menu {
 	public void mostrarGrupos() {
 		System.out.println(administrador.mostrarGrupos());
 	}
+	public String mostrarPiezaSegunPais(String pais) {
+		return administrador.mostrarPiezaSegunPais(pais);
+	}
+	public boolean addStockPieza(String codigo, int cantidad) {
+		Pais agregar = administrador.menuBuscarPais(codigo);
+		
+		if(agregar == null) {
+			return false;
+		}else {
+			int totalStock = agregar.getCantidad()+cantidad;
+			agregar.setCantidad(totalStock);
+			return true;
+		}
+	}
 }

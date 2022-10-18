@@ -171,6 +171,7 @@ public class Gestor {
 		}
 		
 	}
+	
 	private Grupo verificarGrupo(String equipo) {
 		for(Grupo g: listaGrupos) {
 			if(g.getNombreGrupo().equals(equipo)) {
@@ -179,5 +180,33 @@ public class Gestor {
 		}
 		return null;
 	}
+	
+	protected String mostrarPiezaSegunPais(String pais) {
+		boolean existePieza = true;
+		String piezasPais = pais.toUpperCase()+"\n";
+		
+		for(Pais p: listaPaises) {
+			if(p.getNombre().equals(pais) && p.getPiezaArma().equals("pieza")) {
+				existePieza = false;
+				Pieza objetoPieza = buscarPieza(p.getCodPiezaArma());
+				piezasPais+= (objetoPieza.getNombre()+" ==> Cantidad Disponible: "+ p.getCantidad()+" Codigo ==>"+p.getCodPiezaArma()+"\n");
+				
+			}
+		}
+		if(existePieza) {
+			return "a";
+		}
+		return piezasPais;
+	}
+	
+	protected Pais menuBuscarPais(String codigo) {
+		for(Pais p: listaPaises) {
+			if(p.getCodPiezaArma().equals(codigo)) {
+				return p;
+			}
+		}
+		return null;
+	}
+	
 
 }
