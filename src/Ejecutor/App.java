@@ -327,6 +327,10 @@ public class App {
 					if(pass.equals("porotosconriendas")) {
 						String material = "area51,100000,uranio";
 						menu.guardarMaterial(material);
+						
+						
+						
+						
 					}else {
 						System.out.println("ERROR!");
 					}
