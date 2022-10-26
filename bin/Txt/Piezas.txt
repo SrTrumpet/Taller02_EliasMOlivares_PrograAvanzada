@@ -1,2 +1,3 @@
 casco samurai,00001,cabeza,Japon,100
 casco huaso,00003,cabeza,Chile,20
+pecho de madera,00005,torax,Bolivia,60

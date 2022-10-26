@@ -248,4 +248,13 @@ public class Gestor {
 		return municion;
 	}
 
+	protected Pieza buscarPiezaNombre(String nombre, String tipoPieza) {
+		for(Pieza p: listaPiezas) {
+			if(p.getNombre().equals(nombre) && p.getTipoPieza().equals(tipoPieza)) {
+				return p;
+			}
+		}
+		return null;
+	}
+	
 }

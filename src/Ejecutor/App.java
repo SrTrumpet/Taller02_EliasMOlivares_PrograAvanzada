@@ -197,7 +197,44 @@ public class App {
 				System.out.println(" ");
 			}
 			else if(opcion == 6) {}
-			else if(opcion == 7) {}
+			else if(opcion == 7) {
+				
+				System.out.println("Ingrese el nombre del robot: ");
+				String nombre = leer.nextLine();
+				Clases.Robot robot = menu.robotMunicion(nombre);
+				if(robot == null) {
+					System.out.println("Robot no encontrado!");
+				}else {
+					System.out.println(robot.mostrarPiezasArmas());
+					System.out.println("");
+					System.out.println("Ve algun error? SI/NO");
+					String confirmacion = leer.nextLine().toLowerCase();
+					
+					if(confirmacion.equals("si")) {
+						System.out.println("Ingrese la pieza a cambiar: (brazo, cabeza, piernas o torax)");
+						String tipoPieza = leer.nextLine();
+						System.out.println("Ingrese el nombre de la pieza: ");
+						String nombrePieza = leer.nextLine();
+						if(menu.buscarPieza(nombrePieza, tipoPieza)) {
+							if(tipoPieza.equals("brazo")) {
+								robot.setNombreBrazo(nombrePieza);
+							}else if(tipoPieza.equals("cabeza")) {
+								robot.setNombreCabeza(nombrePieza);
+							}else if(tipoPieza.equals("piernas")) {
+								robot.setNombrePiernas(nombrePieza);
+							}else if(tipoPieza.equals("torax")) {
+								robot.setNombreTorax(nombrePieza);
+							}
+							System.out.println("Cambiado con exito");
+						}
+						else {
+							System.out.println("Error!");
+						}
+					}else {
+						System.out.println("Saliendo...");
+					}
+				}
+			}
 			else if(opcion == 8) {
 				System.out.println(" ");
 				menu.mostrarPersonas();
@@ -277,6 +314,7 @@ public class App {
 				}else {
 					System.out.println(robot.mostrarPiezasArmas());
 					System.out.println("");
+					
 				}
 			}
 			else if(opcion == 17) {

@@ -119,7 +119,7 @@ public class Robot {
 	}
 
 	public String mostrarPiezasArmas() {
-		return "Arma: "+this.nombreArma+"\n"+"Piezas: \n"+this.nombreBrazo+"\n"+this.nombreCabeza+"\n"+this.nombrePiernas+"\n"+this.nombreTorax;
+		return "Arma: "+this.nombreArma+"\n"+"Piezas: \n\nBrazo: "+this.nombreBrazo+"\nCabeza: "+this.nombreCabeza+"\nPiernas: "+this.nombrePiernas+"\nTorax: "+this.nombreTorax;
 	}
 }
 

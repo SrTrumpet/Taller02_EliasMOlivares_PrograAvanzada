@@ -262,4 +262,9 @@ public class Menu {
 	public Robot robotMunicion(String nombre) {
 		return administrador.buscarRobot(nombre);
 	}
+	
+	public boolean buscarPieza(String nombre, String tipoPieza) {
+		Pieza p = administrador.buscarPiezaNombre(nombre,tipoPieza);
+		return p != null;
+	}
 }
