@@ -1,5 +1,6 @@
 package Ejecutor;
 
+import java.awt.Robot;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
@@ -12,7 +13,7 @@ public class App {
 
 	public static void main(String[] args) throws IOException {
 		App admin = new App();
-		admin.ejecutor(admin);
+		admin.exe(admin);
 	}
 
 	/***
@@ -20,7 +21,7 @@ public class App {
 	 * @param admin
 	 * @throws IOException
 	 */
-	public void ejecutor(App admin) throws IOException {
+	public void exe(App admin) throws IOException {
 		Menu menu = new Menu();
 		admin.leerArchivo(menu);
 		Gestor g = new Gestor();
@@ -208,7 +209,21 @@ public class App {
 			else if(opcion == 10) {
 				menu.mostrarRobots();
 			}
-			else if(opcion == 11) {}
+			else if(opcion == 11) {
+				menu.mostrarMunicionRobot();
+				System.out.println("Ingrese el nombre del robot a añadir municion: ");
+				String nombre = leer.nextLine();
+				Clases.Robot addMunicion = menu.robotMunicion(nombre);
+				System.out.println("Cuanta municion añadira?: ");
+				int municionAdd = Integer.parseInt(leer.nextLine());
+				if(addMunicion == null) {
+					System.out.println("Robot ingresado no encontrado");
+				}else {
+					addMunicion.addMunicion(municionAdd);
+					System.out.println("Robot: "+addMunicion.getNombreRobot()+" ,municion actual: "+addMunicion.getMunicion());
+				}
+				
+			}
 			else if(opcion == 12) {
 				System.out.println("##############");
 				System.out.println("Lista Paises");
@@ -252,8 +267,35 @@ public class App {
 				menu.mostrarArmasPiezas();
 				System.out.println(" ");
 			}
-			else if(opcion == 16) {}
-			else if(opcion == 17) {}
+			else if(opcion == 16) {
+				
+				System.out.println("Ingrese el nombre del robot: ");
+				String nombre = leer.nextLine();
+				Clases.Robot robot = menu.robotMunicion(nombre);
+				if(robot == null) {
+					System.out.println("Robot no encontrado!");
+				}else {
+					System.out.println(robot.mostrarPiezasArmas());
+					System.out.println("");
+				}
+			}
+			else if(opcion == 17) {
+				
+				System.out.println("Ingrese credencial: ");
+				String credencial = leer.nextLine();
+				if(credencial.equals("empanada")) {
+					System.out.println("Ingrese identificacion: ");
+					String pass = leer.nextLine();
+					if(pass.equals("porotosconriendas")) {
+						String material = "area51,100000,uranio";
+						menu.guardarMaterial(material);
+					}else {
+						System.out.println("ERROR!");
+					}
+				}else {
+					System.out.println("ERROR!");
+				}
+			}
 			else if(opcion == 18) {
 				opcion = 0;
 			}

@@ -256,4 +256,10 @@ public class Menu {
 			return true;
 		}
 	}
+	public void mostrarMunicionRobot() {
+		System.out.println(administrador.municionRobots());
+	}
+	public Robot robotMunicion(String nombre) {
+		return administrador.buscarRobot(nombre);
+	}
 }

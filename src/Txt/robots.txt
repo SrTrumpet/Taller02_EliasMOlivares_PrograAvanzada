@@ -1,2 +1,2 @@
-DaiMekaizer,brazos fuertes, piernas de acero,cabeza gumdam,casco samurai,alas de mitrilo, metralleta circular,GX,123456
-DaiMekaizer,brazos fuertes, piernas de acero,cabeza gumdam,casco samurai,alas de mitrilo, metralleta circular,FD,204753857
+DaiMekaizer,brazos fuertes,piernas de acero,cabeza gumdam,casco samurai,alas de mitrilo,metralleta circular,GX,123456
+Trolo,brazos fuertes,piernas de acero,cabeza gumdam,casco samurai,alas de mitrilo,metralleta circular,FD,204753857

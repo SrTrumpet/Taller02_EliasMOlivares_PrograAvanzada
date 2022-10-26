@@ -30,6 +30,16 @@ public class Gestor {
 	}
 	
 	protected void guardarRobot(Robot robot) {
+		
+		Arma buscarMunicion = buscarArmaNombre(robot.getNombreArma());
+		int municion;
+		if(buscarMunicion == null) {
+			municion = 0;
+		}else {
+			municion = buscarMunicion.getMunicion();
+		}
+		
+		robot.addMunicion(municion);
 		listaRobots.add(robot);
 	}
 
@@ -105,6 +115,15 @@ public class Gestor {
 		}
 		return null;
 	}
+	
+	private Arma buscarArmaNombre(String nombre) {
+		for(Arma a: listaArmas) {
+			if(a.getNombre().equals(nombre)) {
+				return a;
+			}
+		}
+		return null;
+	}
 
 	/***
 	 * Genera una lista con todas las armas y piezas existentes actualmente agregadas
@@ -123,6 +142,17 @@ public class Gestor {
 		return todo;
 		
 	}
+	
+	protected Robot buscarRobot(String nombre) {
+		for(Robot r: listaRobots) {
+			if(r.getNombreRobot().equals(nombre)) {
+				return r; 
+			}
+		}
+		return null;
+	}
+	
+	
 	protected Material buscarMaterial(String material) {
 		for(Material m: listaMateriales) {
 			if(m.getNombreMaterial().toLowerCase().equals(material)) {
@@ -208,5 +238,14 @@ public class Gestor {
 		return null;
 	}
 	
+	protected String municionRobots() {
+		String municion = "Municion Robots \n";
+		
+		for(Robot r: listaRobots) {
+			municion+= (r.mostrarMunicion()+"\n");
+		}
+		
+		return municion;
+	}
 
 }
