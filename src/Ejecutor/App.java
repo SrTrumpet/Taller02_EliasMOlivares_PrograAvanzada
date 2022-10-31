@@ -9,6 +9,13 @@ import Clases.Gestor;
 import Clases.Menu;
 import Clases.Persona;
 
+
+/***
+ * @git https://github.com/SrTrumpet/Taller02_EliasMOlivares_PrograAvanzada
+ * @author Elias M. Olivares
+ *
+ */
+
 public class App {
 
 	public static void main(String[] args) throws IOException {
